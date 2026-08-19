@@ -283,6 +283,7 @@ h2 { font-size: clamp(1.8rem, 3vw, 2.6rem); }
   display: grid;
   gap: 10px;
 }
+.fallback[hidden] { display: none; }
 .fallback input {
   width: 100%;
   border-radius: 12px;
