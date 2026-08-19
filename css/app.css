@@ -260,6 +260,36 @@ h2 { font-size: clamp(1.8rem, 3vw, 2.6rem); }
 @keyframes pulse {
   50% { transform: scale(1.04); box-shadow: 0 0 0 18px rgba(30, 224, 200, 0.08), 0 20px 60px rgba(30, 224, 200, 0.25); }
 }
+.facts {
+  list-style: none;
+  padding: 0;
+  margin: 22px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+.fact {
+  min-width: 160px;
+  text-align: left;
+  border: 1px solid var(--line-strong);
+  border-radius: 14px;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.02);
+}
+.fact.is-set {
+  border-color: rgba(30, 224, 200, 0.35);
+  background: var(--teal-dim);
+}
+.fact__label {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.fact__value { display: block; margin-top: 4px; }
 .live-box {
   min-height: 84px;
   margin: 22px 0;

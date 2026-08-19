@@ -28,19 +28,20 @@
     <p class="kicker"><span class="live-dot" aria-hidden="true"></span> Trial · Web Speech · speechSynthesis</p>
     <div class="orb" aria-hidden="true"></div>
     <h1>Talk to start the trial</h1>
-    <p class="lede">One utterance. Shop name, trade, and the number you already use. Kallo replies in this tab, then opens a clickable inbox.</p>
+    <p class="lede">Kallo waits for three facts: shop name, trade, and the number you already use. If one is missing, it asks. You are in only when all three are in.</p>
     <p class="example">Try: <span data-example></span></p>
+    <ul class="facts" data-facts></ul>
     <p class="fine" data-status>Ready when you are.</p>
-    <div class="live-box" data-live>Waiting for one sentence.</div>
+    <div class="live-box" data-live>Waiting for the next fact.</div>
     <button class="btn btn--primary" type="button" data-start>
       <span class="live-dot" aria-hidden="true"></span>
       Talk to start the trial
     </button>
     <p class="error" data-error hidden></p>
     <form class="fallback" data-fallback hidden data-fallback-form>
-      <label for="utterance">Same sentence, typed — not a signup</label>
+      <label for="utterance">Same facts, typed — not a signup</label>
       <input id="utterance" name="utterance" data-utterance autocomplete="off" placeholder="Ashford Locksmiths, locksmith, 01632 960123">
-      <button class="btn btn--ghost" type="submit">Open inbox from this line</button>
+      <button class="btn btn--ghost" type="submit">Continue</button>
     </form>
     <p class="fine">No email. No live calls. Speech stays in the browser.</p>
   </main>

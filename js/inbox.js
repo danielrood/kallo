@@ -1,16 +1,12 @@
 (function () {
-  const profile =
-    window.kalloStore.read() || {
-      shopName: "Trial shop",
-      tradeId: "shop",
-      tradeLabel: "shop",
-      number: "Number on file",
-      raw: "",
-      capturedAt: new Date().toISOString(),
-    };
+  const profile = window.kalloStore.read();
+  if (!window.isComplete(profile)) {
+    window.location.replace(window.kalloHref("talk/"));
+    return;
+  }
 
   const items = window.kalloDemo.forTrade(profile.tradeId);
-  const stateKey = "kallo.inbox.accepted." + (profile.shopName || "trial");
+  const stateKey = "kallo.inbox.accepted." + profile.shopName;
   try {
     const accepted = JSON.parse(sessionStorage.getItem(stateKey) || "[]");
     items.forEach(function (item) {
