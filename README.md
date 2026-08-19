@@ -4,11 +4,13 @@ Public prototype of an AI receptionist for UK shop owners.
 
 **Live:** https://danielrood.github.io/kallo/
 
+GitHub Pages is served from `main` `/` (root). If that URL 404s, enable Pages in the repo settings: Deploy from a branch → `main` → `/`. The Cloud Agent token cannot create the Pages site.
+
 - `/` landing
 - `/talk/` one spoken sentence starts the trial
 - `/inbox/` clickable owner inbox (urgency, summary, quote accept)
 
-The trial uses the browser microphone (`webkitSpeechRecognition` / `SpeechRecognition`) and `speechSynthesis`. It does not place live phone calls, collect email, or book a demo. Sample jobs are labelled **Demo**.
+The trial uses the browser microphone (`webkitSpeechRecognition` / `SpeechRecognition`) and `speechSynthesis`. It does not place live phone calls or collect an email address. Sample jobs are labelled **Demo**.
 
 ## Local
 
