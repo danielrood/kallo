@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kallo — AI receptionist for UK shop owners</title>
+  <meta name="description" content="Kallo answers when you cannot. Talk once to open a trial owner inbox with urgency-sorted callbacks, a summary, and quote accept. Browser prototype, no live calls.">
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/app.css">
+</head>
+<body>
+  <header class="wrap nav">
+    <a class="brand" href="./">
+      <img src="./assets/logo.svg" alt="Kallo">
+      Kallo
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#how">How it works</a>
+      <a href="#inbox">Owner inbox</a>
+      <a href="./talk/">Talk trial</a>
+    </nav>
+    <a class="btn btn--primary" href="./talk/">Talk to start the trial</a>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div>
+        <p class="kicker"><span class="live-dot" aria-hidden="true"></span> UK shops · browser trial · no signup</p>
+        <h1>Your shop stays reachable while you are on the tools.</h1>
+        <p class="lede">Kallo is an AI receptionist for UK shop owners. Speak your shop name, trade, and the number you already have. One sentence opens a clickable owner inbox — callbacks by urgency, a written summary, and a quote the customer can accept.</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="./talk/"><span class="live-dot" aria-hidden="true"></span> Talk to start the trial</a>
+          <a class="btn btn--ghost" href="./inbox/">Preview the inbox</a>
+        </div>
+        <p class="fine">Uses the microphone in this browser. No live phone calls. Sample jobs are labelled Demo. Nothing is billed.</p>
+      </div>
+      <aside class="product" aria-label="Demo inbox preview">
+        <div class="product__bar">
+          <strong>Owner inbox</strong>
+          <span class="demo-pill">Demo</span>
+        </div>
+        <div class="product__list">
+          <div class="mock-row mock-row--on">
+            <span><span class="chip chip--urgent">Urgent</span> <span class="demo-pill">Demo</span></span>
+            <strong>Priya N. · locked out, child in the car</strong>
+            <span>Callback now · summary ready</span>
+          </div>
+          <div class="mock-row">
+            <span><span class="chip chip--quote">Quote</span> <span class="demo-pill">Demo</span></span>
+            <strong>Owen Hale · rekey the shop shutters</strong>
+            <span>£160 waiting on accept</span>
+          </div>
+          <div class="mock-row">
+            <span><span class="chip chip--callback">Callback</span> <span class="demo-pill">Demo</span></span>
+            <strong>Marta Cole · spare Yale for the flat</strong>
+            <span>Tomorrow 09:30–11:00</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="how" class="section">
+      <p class="step">01 — HOW THE TRIAL WORKS</p>
+      <h2>Talk once. The inbox is yours.</h2>
+      <div class="grid-3">
+        <article class="card">
+          <p class="step">STEP 1</p>
+          <h3>Speak one sentence</h3>
+          <p>Shop name, trade, existing number. Kallo listens in the browser with Web Speech and answers with the built-in voice. No account, no email, no diary booking.</p>
+        </article>
+        <article class="card">
+          <p class="step">STEP 2</p>
+          <h3>Open the owner inbox</h3>
+          <p>That one utterance builds a fake shop inbox. Urgent jobs sit at the top. Each row is clickable. Every sample is stamped Demo.</p>
+        </article>
+        <article class="card">
+          <p class="step">STEP 3</p>
+          <h3>Read, ring back, accept</h3>
+          <p>Scan the summary, see the suggested callback window, and accept a quote as the customer would. This is a prototype, not a live line.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="inbox" class="section">
+      <p class="step">02 — WHAT THE INBOX HOLDS</p>
+      <h2>Built for people who cannot pick up.</h2>
+      <div class="grid-2">
+        <article class="card">
+          <h3>Urgency first</h3>
+          <p>A lockout or a leaking stopcock is not the same as a hours question. Kallo sorts the list so the job that cannot wait is the one you see first.</p>
+        </article>
+        <article class="card">
+          <h3>A summary you can scan</h3>
+          <p>Name, what is going on, and when they can take a return call. You are not replaying a voicemail in the van.</p>
+        </article>
+        <article class="card">
+          <h3>Quote accept</h3>
+          <p>When a price is ready, the customer can accept it in the same thread. You see Accepted · demo on the card.</p>
+        </article>
+        <article class="card">
+          <h3>Keep the number you have</h3>
+          <p>The trial asks for the number you already use so the inbox feels like your shop. This build does not forward or place calls.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section--tight">
+      <article class="card">
+        <p class="step">TRADES ON THE TRIAL</p>
+        <h2>Made for the counter, the bay, and the van.</h2>
+        <p>Say the trade in your sentence and the demo jobs switch. The list is a starting set, not a claim about every high street.</p>
+        <div class="trades">
+          <span>Locksmith</span><span>Plumber</span><span>Electrician</span>
+          <span>Garage</span><span>Salon</span><span>Cafe</span>
+          <span>Bakery</span><span>Florist</span><span>Builder</span>
+        </div>
+      </article>
+    </section>
+
+    <section class="section faq">
+      <p class="step">03 — STRAIGHT ANSWERS</p>
+      <h2>Before you tap the mic.</h2>
+      <details open>
+        <summary>Does this call a real phone?</summary>
+        <p>No. The trial is in-browser only. Speech stays with Web Speech and speechSynthesis. There is no live receptionist line in this prototype.</p>
+      </details>
+      <details>
+        <summary>Why do I talk instead of filling a form?</summary>
+        <p>The product is a voice receptionist. The trial starts the same way: one spoken line. There is no email field and no “book a walkthrough” path.</p>
+      </details>
+      <details>
+        <summary>Are the customers real?</summary>
+        <p>No. Every callback, summary, and quote is labelled Demo. Numbers use the UK 01632 / 07700 900 dummy ranges.</p>
+      </details>
+      <details>
+        <summary>What if my browser cannot listen?</summary>
+        <p>Chrome and Edge on HTTPS can use the microphone. If listening is blocked, type the same one sentence. Kallo still opens the inbox.</p>
+      </details>
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    <p>Kallo is a public prototype. It does not place or receive live phone calls, store passwords, or charge a card. Inbox rows marked Demo are sample jobs, not testimonials.</p>
+    <p><a href="./talk/">Talk</a> · <a href="./inbox/">Inbox</a> · <a href="https://github.com/danielrood/kallo">Source</a></p>
+  </footer>
+  <script src="./js/base.js"></script>
+</body>
+</html>

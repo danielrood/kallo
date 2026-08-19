@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kallo</title>
+  <script>
+    (function () {
+      var path = location.pathname.replace(/\/kallo\/?/, "/");
+      if (/^\/talk/.test(path)) location.replace("/kallo/talk/");
+      else if (/^\/inbox/.test(path)) location.replace("/kallo/inbox/");
+      else location.replace("/kallo/");
+    })();
+  </script>
+  <link rel="stylesheet" href="./css/app.css">
+</head>
+<body>
+  <main class="wrap" style="padding:80px 0">
+    <p>Taking you back to Kallo.</p>
+    <p><a href="./">Landing</a> · <a href="./talk/">Talk</a> · <a href="./inbox/">Inbox</a></p>
+  </main>
+</body>
+</html>

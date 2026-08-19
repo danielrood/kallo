@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Owner inbox — Kallo</title>
+  <meta name="description" content="Fake owner inbox for the Kallo trial. Urgency-sorted demo callbacks, summaries, and quote accept.">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/app.css">
+</head>
+<body class="page-inbox">
+  <header class="wrap nav">
+    <a class="brand" href="../">
+      <img src="../assets/logo.svg" alt="Kallo">
+      Kallo
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="../talk/">Talk trial</a>
+      <a href="../">Landing</a>
+    </nav>
+    <a class="btn btn--primary" href="../talk/">Talk to start the trial</a>
+  </header>
+
+  <main class="wrap">
+    <section class="inbox-head">
+      <p class="kicker"><span class="live-dot" aria-hidden="true"></span> Owner inbox · labelled demo</p>
+      <h1 data-shop>Trial shop</h1>
+      <p class="fine" data-shop-meta>shop · Number on file · owner inbox</p>
+      <p class="fine">Click a callback. Urgent jobs are first. Quotes can be accepted in-page. None of these people are real.</p>
+    </section>
+    <div class="inbox-shell">
+      <section class="product" aria-label="Callback list">
+        <div class="product__bar">
+          <strong>Callbacks</strong>
+          <span class="demo-pill">Demo</span>
+        </div>
+        <div data-list></div>
+      </section>
+      <section class="card" data-detail></section>
+    </div>
+  </main>
+  <script src="../js/base.js"></script>
+  <script src="../js/demo-data.js"></script>
+  <script src="../js/inbox.js"></script>
+</body>
+</html>

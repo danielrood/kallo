@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Kallo">
+  <rect width="128" height="128" rx="28" fill="#1A1D21"/>
+  <rect x="30" y="26" width="15" height="76" rx="4" fill="#F7F8F8"/>
+  <path d="M94 30c-20 11-36 22-42 34 6 12 22 23 42 34" fill="none" stroke="#F7F8F8" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="102" y="61" width="14" height="6" rx="3" fill="#1EE0C8"/>
+</svg>

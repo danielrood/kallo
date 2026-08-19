@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Talk to start the trial — Kallo</title>
+  <meta name="description" content="Speak your shop name, trade, and existing number. Kallo opens a demo owner inbox. Browser microphone only.">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/app.css">
+</head>
+<body class="page-talk">
+  <header class="wrap nav">
+    <a class="brand" href="../">
+      <img src="../assets/logo.svg" alt="Kallo">
+      Kallo
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="../#how">How it works</a>
+      <a href="../inbox/">Owner inbox</a>
+    </nav>
+    <a class="btn btn--ghost" href="../">Back to landing</a>
+  </header>
+
+  <main class="wrap talk-stage">
+    <p class="kicker"><span class="live-dot" aria-hidden="true"></span> Trial · Web Speech · speechSynthesis</p>
+    <div class="orb" aria-hidden="true"></div>
+    <h1>Talk to start the trial</h1>
+    <p class="lede">One utterance. Shop name, trade, and the number you already use. Kallo replies in this tab, then opens a clickable inbox.</p>
+    <p class="example">Try: <span data-example></span></p>
+    <p class="fine" data-status>Ready when you are.</p>
+    <div class="live-box" data-live>Waiting for one sentence.</div>
+    <button class="btn btn--primary" type="button" data-start>
+      <span class="live-dot" aria-hidden="true"></span>
+      Talk to start the trial
+    </button>
+    <p class="error" data-error hidden></p>
+    <form class="fallback" data-fallback hidden data-fallback-form>
+      <label for="utterance">Same sentence, typed — not a signup</label>
+      <input id="utterance" name="utterance" data-utterance autocomplete="off" placeholder="Ashford Locksmiths, locksmith, 01632 960123">
+      <button class="btn btn--ghost" type="submit">Open inbox from this line</button>
+    </form>
+    <p class="fine">No email. No live calls. Speech stays in the browser.</p>
+  </main>
+  <script src="../js/base.js"></script>
+  <script src="../js/parse.js"></script>
+  <script src="../js/speech.js"></script>
+  <script src="../js/talk.js"></script>
+</body>
+</html>
