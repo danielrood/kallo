@@ -1,23 +1,31 @@
 # Kallo
 
-Public prototype of an AI receptionist for UK shop owners.
+One card while someone speaks into the laptop microphone. She writes it in the paper book.
 
 **Live:** https://danielrood.github.io/kallo/
 
-GitHub Pages is served from `main` `/` (root). If that URL 404s, enable Pages in the repo settings: Deploy from a branch → `main` → `/`. The Cloud Agent token cannot create the Pages site.
+GitHub Pages is served from `main` `/` (root). If that URL 404s, enable Pages in the repo settings: Deploy from a branch → `main` → `/`.
 
-- `/` landing
-- `/talk/` collect shop name, trade, and existing number; ask if any fact is missing
-- `/inbox/` clickable owner inbox after those three facts (urgency, summary, quote accept)
+The mark and Helen's sit top left; teal **On the line** top right. One verb — BOOKED, MOVED, or CANCELLED — then the name, service, and time. Footer: “Write it down. Not a live line.” No diary, inbox, confirm pill, or live phone. The Tuesday sitting uses the browser microphone (Web Speech). No API keys.
 
-The trial uses the browser microphone (`webkitSpeechRecognition` / `SpeechRecognition`) and `speechSynthesis`. It does not place live phone calls or collect an email address. Sample jobs are labelled **Demo**.
+## Tuesday path
+
+Default card: Priya Nair · Tuesday 2:30 · BOOKED.
+
+1. Book Priya → BOOKED
+2. Move to a later slot the same week → MOVED
+3. Cancel that booking → CANCELLED
+
+If the microphone is blocked, add `?type=1`.
 
 ## Local
-
-Serve the folder over HTTP (the mic needs a secure origin, so use localhost):
 
 ```bash
 python3 -m http.server 4173
 ```
 
-Then open `http://127.0.0.1:4173/`.
+Open `http://127.0.0.1:4173/`. Then:
+
+```bash
+node tests/fixtures.test.mjs
+```
