@@ -11,7 +11,6 @@
     who: document.querySelector("[data-who]"),
     what: document.querySelector("[data-what]"),
     when: document.querySelector("[data-when]"),
-    confirm: document.querySelector("[data-confirm]"),
     fallback: document.querySelector("[data-fallback]"),
     form: document.querySelector("[data-fallback-form]"),
     input: document.querySelector("[data-say]"),
@@ -26,10 +25,6 @@
     ui.who.textContent = shown.who;
     ui.what.textContent = shown.what;
     ui.when.textContent = shown.when;
-    if (ui.confirm) {
-      ui.confirm.textContent = shown.confirm;
-      ui.confirm.disabled = !shown.pending;
-    }
   }
 
   function showFallback() {
@@ -69,13 +64,6 @@
 
   render();
   if (showType) showFallback();
-
-  if (ui.confirm) {
-    ui.confirm.addEventListener("click", function () {
-      reception.thatsRight(session);
-      render();
-    });
-  }
 
   if (ui.form) {
     ui.form.addEventListener("submit", function (event) {

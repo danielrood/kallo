@@ -183,13 +183,11 @@
     return {
       salon: SALON,
       card: defaultCard(),
-      pending: true,
     };
   }
 
   function hear(session, raw) {
     session.card = parseTurn(raw, session.card);
-    session.pending = true;
     return session.card;
   }
 
@@ -205,25 +203,18 @@
       who: card.who,
       what: sentence(card.what),
       when: card.when,
-      confirm: session.pending ? "That's right" : "Written",
-      pending: session.pending,
     };
-  }
-
-  function thatsRight(session) {
-    session.pending = false;
-    return view(session);
   }
 
   function runThreeFixtures(turns) {
     const spoken = Object.assign({}, FIXTURE_TURNS, turns || {});
     const session = createSession();
     hear(session, spoken.book);
-    const booked = thatsRight(session);
+    const booked = view(session);
     hear(session, spoken.move);
-    const moved = thatsRight(session);
+    const moved = view(session);
     hear(session, spoken.cancel);
-    const cancelled = thatsRight(session);
+    const cancelled = view(session);
     return [booked, moved, cancelled];
   }
 
@@ -235,7 +226,6 @@
     parseTurn: parseTurn,
     createSession: createSession,
     hear: hear,
-    thatsRight: thatsRight,
     view: view,
     runThreeFixtures: runThreeFixtures,
     defaultCard: defaultCard,
