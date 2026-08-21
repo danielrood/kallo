@@ -1,10 +1,9 @@
 (function () {
   const reception = window.kalloReception;
-  const storeKey = "kallo.diary.v1";
-  const backend = window.kalloVoice.pick();
+  const ears = window.kalloSpeech;
   const session = reception.createSession();
   const showType =
-    /(?:\?|&)type=1\b/.test(window.location.search || "") || !backend.canListen;
+    /(?:\?|&)type=1\b/.test(window.location.search || "") || !ears.canListen;
 
   const ui = {
     salon: document.querySelector("[data-salon]"),
@@ -12,7 +11,6 @@
     who: document.querySelector("[data-who]"),
     what: document.querySelector("[data-what]"),
     when: document.querySelector("[data-when]"),
-    turn: document.querySelector("[data-turn]"),
     confirm: document.querySelector("[data-confirm]"),
     fallback: document.querySelector("[data-fallback]"),
     form: document.querySelector("[data-fallback-form]"),
@@ -21,32 +19,12 @@
 
   let listening = false;
 
-  function persist() {
-    try {
-      sessionStorage.setItem(storeKey, JSON.stringify(session.diary));
-    } catch (err) {
-      /* ignore */
-    }
-  }
-
-  function restore() {
-    try {
-      const saved = JSON.parse(sessionStorage.getItem(storeKey) || "null");
-      if (saved && Array.isArray(saved.records)) session.diary = saved;
-    } catch (err) {
-      /* keep the default fixture */
-    }
-  }
-
   function render() {
     if (ui.salon) ui.salon.textContent = session.salon;
-    const showTurn = Boolean(session.proposal);
-    if (ui.turn) ui.turn.hidden = !showTurn;
-    if (!showTurn) return;
-    ui.verb.textContent = session.proposal.verb;
-    ui.who.textContent = session.proposal.who;
-    ui.what.textContent = session.proposal.what;
-    ui.when.textContent = session.proposal.when;
+    ui.verb.textContent = session.card.verb;
+    ui.who.textContent = session.card.who;
+    ui.what.textContent = session.card.what;
+    ui.when.textContent = session.card.when;
     if (ui.confirm) ui.confirm.hidden = !session.pending;
   }
 
@@ -63,14 +41,14 @@
   }
 
   async function listenLoop() {
-    if (!backend.canListen) {
+    if (!ears.canListen) {
       showFallback();
       return;
     }
     if (listening) return;
     listening = true;
     try {
-      const text = await backend.listenOnce();
+      const text = await ears.listenOnce();
       listening = false;
       applySpoken(text);
       listenLoop();
@@ -85,27 +63,13 @@
     }
   }
 
-  async function openLine() {
-    if (window.kalloSpeech) window.kalloSpeech.warmVoices();
-    try {
-      await backend.speak(session.salon + ", how can I help?");
-    } catch (err) {
-      /* speech can be blocked; the mic is still the shop line */
-    }
-    listenLoop();
-  }
-
-  restore();
   render();
   if (showType) showFallback();
 
   if (ui.confirm) {
     ui.confirm.addEventListener("click", function () {
-      const record = reception.thatsRight(session);
-      persist();
+      reception.thatsRight(session);
       render();
-      backend.speak(record.verb);
-      listenLoop();
     });
   }
 
@@ -118,12 +82,7 @@
     });
   }
 
-  document.addEventListener("pointerdown", function () {
-    listenLoop();
-  });
-  document.addEventListener("keydown", function () {
-    listenLoop();
-  });
-
-  openLine();
+  document.addEventListener("pointerdown", listenLoop);
+  document.addEventListener("keydown", listenLoop);
+  listenLoop();
 })();

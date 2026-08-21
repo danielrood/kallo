@@ -145,77 +145,57 @@
     return "";
   }
 
-  function intentOf(text, hasBooking) {
+  function intentOf(text) {
     if (/\b(cancel|cancelled|call off|bin it|forget it|don't need|do not need)\b/i.test(text)) {
       return "Cancelled";
     }
-    if (
-      /\b(move|moved|change|changed|reschedule|switch|push)\b/i.test(text) ||
-      (hasBooking && /\blater\b|\banother\s+(?:day|time|slot)\b/i.test(text) && !/\bbook\b/i.test(text))
-    ) {
+    if (/\b(move|moved|change|changed|reschedule|switch|push|later|another\s+(?:day|time|slot))\b/i.test(text)) {
       return "Moved";
     }
     return "Booked";
   }
 
-  function proposalFrom(source, verb) {
+  function cardOf(source, verb) {
     return {
       verb: verb || "Booked",
       who: source.who,
       what: source.what,
       when: source.when,
-      demo: true,
     };
   }
 
-  function defaultProposal() {
-    return proposalFrom(FIXTURE, "Booked");
+  function defaultCard() {
+    return cardOf(FIXTURE, "Booked");
   }
 
   function parseTurn(raw, current) {
     const text = normalise(raw);
     const prior = current || FIXTURE;
-    const verb = intentOf(text, Boolean(current));
+    const verb = intentOf(text);
     const who = extractWho(text) || prior.who;
     const what = extractWhat(text) || prior.what;
     let when = extractWhen(text, prior.when);
     if (!when) when = verb === "Moved" ? LATER : prior.when;
-    return proposalFrom({ who: who, what: what, when: when }, verb);
-  }
-
-  function createDiary() {
-    return { records: [], current: null };
+    return cardOf({ who: who, what: what, when: when }, verb);
   }
 
   function createSession() {
     return {
       salon: SALON,
-      proposal: defaultProposal(),
+      card: defaultCard(),
       pending: true,
-      diary: createDiary(),
     };
   }
 
   function hear(session, raw) {
-    session.proposal = parseTurn(raw, session.diary.current || session.proposal);
+    session.card = parseTurn(raw, session.card);
     session.pending = true;
-    return session.proposal;
+    return session.card;
   }
 
   function thatsRight(session) {
-    const record = {
-      verb: session.proposal.verb,
-      who: session.proposal.who,
-      what: session.proposal.what,
-      when: session.proposal.when,
-      demo: true,
-      at: new Date().toISOString(),
-    };
-    session.diary.records.push(record);
-    session.diary.current = record;
-    session.proposal = proposalFrom(record, record.verb);
     session.pending = false;
-    return record;
+    return session.card;
   }
 
   function runThreeFixtures(turns) {
@@ -227,7 +207,7 @@
     const moved = thatsRight(session);
     hear(session, spoken.cancel);
     const cancelled = thatsRight(session);
-    return { session: session, records: [booked, moved, cancelled] };
+    return [booked, moved, cancelled];
   }
 
   const api = {
@@ -240,7 +220,7 @@
     hear: hear,
     thatsRight: thatsRight,
     runThreeFixtures: runThreeFixtures,
-    defaultProposal: defaultProposal,
+    defaultCard: defaultCard,
   };
 
   root.kalloReception = api;
