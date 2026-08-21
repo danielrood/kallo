@@ -118,5 +118,12 @@
     });
   }
 
+  document.addEventListener("pointerdown", function () {
+    listenLoop();
+  });
+  document.addEventListener("keydown", function () {
+    listenLoop();
+  });
+
   openLine();
 })();
