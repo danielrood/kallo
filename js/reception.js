@@ -193,9 +193,26 @@
     return session.card;
   }
 
+  function sentence(text) {
+    const value = String(text || "");
+    return value ? value.charAt(0).toUpperCase() + value.slice(1) : value;
+  }
+
+  function view(session) {
+    const card = session.card;
+    return {
+      verb: String(card.verb || "").toUpperCase(),
+      who: card.who,
+      what: sentence(card.what),
+      when: card.when,
+      confirm: session.pending ? "That's right" : "Written",
+      pending: session.pending,
+    };
+  }
+
   function thatsRight(session) {
     session.pending = false;
-    return session.card;
+    return view(session);
   }
 
   function runThreeFixtures(turns) {
@@ -219,6 +236,7 @@
     createSession: createSession,
     hear: hear,
     thatsRight: thatsRight,
+    view: view,
     runThreeFixtures: runThreeFixtures,
     defaultCard: defaultCard,
   };

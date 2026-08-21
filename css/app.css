@@ -106,6 +106,11 @@ button, input { font: inherit; }
 }
 
 .confirm:hover { filter: brightness(1.05); }
+.confirm:disabled {
+  cursor: default;
+  filter: none;
+  opacity: 0.88;
+}
 
 .note {
   margin: 18px 0 0;
