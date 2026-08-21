@@ -12,19 +12,22 @@
   <link rel="stylesheet" href="./css/app.css">
 </head>
 <body>
-  <main class="line">
-    <header class="line__id">
-      <img src="./assets/logo.svg" alt="Kallo" width="48" height="48">
+  <header class="top">
+    <div class="brand">
+      <img src="./assets/logo.svg" alt="Kallo" width="36" height="36">
       <p data-salon>Helen's</p>
-      <p class="line__state"><span data-state>On the line</span> <span class="demo-pill">Demo</span></p>
-    </header>
+    </div>
+    <p class="state" data-state>On the line</p>
+  </header>
 
+  <main class="stage">
     <section class="turn" data-turn aria-live="polite">
-      <p class="verb" data-verb>Booked</p>
+      <p class="verb" data-verb>BOOKED</p>
       <p class="who" data-who>Priya Nair</p>
-      <p class="what" data-what>cut and blow dry</p>
+      <p class="what" data-what>Cut and blow dry</p>
       <p class="when" data-when>Tuesday 2:30</p>
       <button class="confirm" type="button" data-confirm>That's right</button>
+      <p class="note">Write it down. Not a live line.</p>
     </section>
 
     <form class="fallback" data-fallback data-fallback-form hidden>

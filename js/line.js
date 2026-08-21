@@ -19,13 +19,17 @@
 
   let listening = false;
 
+  function sentence(text) {
+    const value = String(text || "");
+    return value ? value.charAt(0).toUpperCase() + value.slice(1) : value;
+  }
+
   function render() {
     if (ui.salon) ui.salon.textContent = session.salon;
-    ui.verb.textContent = session.card.verb;
+    ui.verb.textContent = String(session.card.verb || "").toUpperCase();
     ui.who.textContent = session.card.who;
-    ui.what.textContent = session.card.what;
+    ui.what.textContent = sentence(session.card.what);
     ui.when.textContent = session.card.when;
-    if (ui.confirm) ui.confirm.hidden = !session.pending;
   }
 
   function showFallback() {

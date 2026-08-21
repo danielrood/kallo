@@ -6,7 +6,7 @@ One card while someone speaks into the laptop microphone. She writes it in the p
 
 GitHub Pages is served from `main` `/` (root). If that URL 404s, enable Pages in the repo settings: Deploy from a branch → `main` → `/`.
 
-The mark, Helen's, and **On the line**. One verb — Booked, Moved, or Cancelled — plus the name and time. **That's right** confirms the card. There is no diary, inbox, or live phone line. The Tuesday sitting uses the browser microphone (Web Speech). No API keys.
+The mark and Helen's sit top left; teal **On the line** top right. One verb — BOOKED, MOVED, or CANCELLED — then the name, service, and time. **That's right** confirms the card. Footer: “Write it down. Not a live line.” No diary, inbox, or live phone. The Tuesday sitting uses the browser microphone (Web Speech). No API keys.
 
 ## Tuesday path
 
