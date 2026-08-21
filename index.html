@@ -2,7 +2,7 @@
 <html lang="en-GB">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Helen's · On the line — Kallo</title>
   <meta name="description" content="Helen's on the line. Book, move, or cancel. Laptop microphone. Demo.">
   <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
@@ -21,20 +21,22 @@
   </header>
 
   <main class="stage">
-    <section class="turn" data-turn aria-live="polite">
+    <section class="facts" data-turn aria-live="polite">
       <p class="verb" data-verb>BOOKED</p>
       <p class="who" data-who>Priya Nair</p>
       <p class="what" data-what>Cut and blow dry</p>
       <p class="when" data-when>Tuesday 2:30</p>
-      <button class="confirm" type="button" data-confirm>That's right</button>
-      <p class="note">Write it down. Not a live line.</p>
     </section>
 
-    <form class="fallback" data-fallback data-fallback-form hidden>
-      <label for="say">Same turn, typed</label>
-      <input id="say" name="say" data-say autocomplete="off" placeholder="Book Priya Nair for a cut and blow dry on Tuesday at 2:30">
-      <button type="submit">Continue</button>
-    </form>
+    <div class="thumb">
+      <form class="fallback" data-fallback data-fallback-form hidden>
+        <label for="say">Same turn, typed</label>
+        <input id="say" name="say" data-say autocomplete="off" placeholder="Book Priya Nair for a cut and blow dry on Tuesday at 2:30">
+        <button type="submit">Continue</button>
+      </form>
+      <button class="confirm" type="button" data-confirm>That's right</button>
+      <p class="note">Write it down. Not a live line.</p>
+    </div>
   </main>
   <script src="./js/speech.js"></script>
   <script src="./js/reception.js"></script>
